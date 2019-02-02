@@ -1,0 +1,70 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.elpy.sip</groupId>
+        <artifactId>sip</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+    <artifactId>sip-assembler</artifactId>
+    <packaging>pom</packaging>
+    
+    <properties>
+        <sip.distr.basedir>${project.basedir}/target/sip-${project.version}</sip.distr.basedir>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>1.8</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <id>package</id>
+                        <phase>package</phase>
+                        <configuration>
+                            <target>
+                                <echo message=">>>>>>>>>>>>>>>>>Making distributive" />
+                                <!-- Distr Template -->
+                                <copy todir="${sip.distr.basedir}">
+                                    <fileset dir="${project.basedir}/distr-template" includes="**" />
+                                </copy>
+                                <!-- Boot -->
+                                <copy file="{project.basedir}/../../sip-boot/target/sip-boot-${project.version}.jar"
+                                    tofile="${sip.distr.basedir}/bin/boot.jar" />
+                                <!-- Module API -->
+                                <copy file="{project.basedir}/../../sip-module-api/target/sip-module-api-${project.version}.jar"
+                                    tofile="${sip.distr.basedir}/lib/module-api/module-api-${project.version}.jar" />
+                                    
+                                <copy todir="${sip.distr.basedir}/log/">
+                                    <fileset dir="{project.basedir}/../../sip-module-log/target/lib/" includes="**" />
+                                </copy>
+                                
+                                <copy todir="${sip.distr.basedir}/lib/module-lib/">
+                                    <fileset dir="{project.basedir}/../../sip-module-lib/target/lib/" includes="**" />
+                                </copy>
+                                
+                                <!-- Component API -->
+                                <copy file="{project.basedir}/../../sip-component-api/target/sip-component-api-${project.version}.jar"
+                                    tofile="${sip.distr.basedir}/lib/component-api/component-api-${project.version}.jar" />
+                                
+                                <copy todir="${sip.distr.basedir}/lib/component-lib/">
+                                    <fileset dir="{project.basedir}/../../sip-component-lib/target/lib/" includes="**" />
+                                </copy>
+                                <!-- Core -->
+                                <copy file="{project.basedir}/../../sip-core/target/sip-core-${project.version}.jar"
+                                    tofile="${sip.distr.basedir}/lib/core/core-${project.version}.jar" />
+                            </target>
+                        </configuration>
+                    </execution>
+                    <!-- -->
+                </executions>
+            </plugin>
+
+        </plugins>
+    </build>
+</project>

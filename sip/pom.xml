@@ -1,0 +1,38 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.elpy.sip</groupId>
+    <artifactId>sip</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <properties>
+        <slf4j.log4j2.version>2.11.1</slf4j.log4j2.version>
+        <spring.version>5.1.4.RELEASE</spring.version>
+    </properties>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.8.0</version>
+                    <configuration>
+                        <release>11</release>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+    <modules>
+        <module>sip-boot</module>
+        <module>sip-module-api</module>
+        <module>sip-module-log</module>
+        <module>sip-module-lib</module>
+        <module>sip-component-api</module>
+        <module>sip-component-lib</module>
+        <module>sip-core</module>
+        <module>sip-assembler</module>
+    </modules>
+</project>
