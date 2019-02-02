@@ -35,4 +35,39 @@
         <module>sip-core</module>
         <module>sip-assembler</module>
     </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.elpy.sip</groupId>
+                <artifactId>sip-module-api</artifactId>
+                <version>${project.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.elpy.sip</groupId>
+                <artifactId>sip-module-log</artifactId>
+                <version>${project.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.elpy.sip</groupId>
+                <artifactId>sip-module-lib</artifactId>
+                <version>${project.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.elpy.sip</groupId>
+                <artifactId>sip-component-api</artifactId>
+                <version>${project.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.elpy.sip</groupId>
+                <artifactId>sip-component-lib</artifactId>
+                <version>${project.version}</version>
+                <scope>provided</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 </project>
