@@ -34,6 +34,7 @@
         <module>sip-component-lib</module>
         <module>sip-core</module>
         <module>sip-assembler</module>
+        <module>sip-components</module>
     </modules>
 
     <dependencyManagement>

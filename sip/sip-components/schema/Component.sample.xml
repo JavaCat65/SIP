@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Component>
+<Component>
+    <Id>Test</Id>
+    <Version>1.0.0</Version>
+    <Name>Test Component for xml</Name>
+    <!-- <ParentClassLoader>LIB</ParentClassLoader> -->
+    <ParentClassLoader>API</ParentClassLoader>
+</Component>
