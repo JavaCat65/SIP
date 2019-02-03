@@ -15,21 +15,15 @@
  */
 package org.elpy.sip.module;
 
-import java.io.File;
-
-import org.w3c.dom.Element;
+import org.elpy.sip.module.context.RequestContext;
+import org.elpy.sip.module.context.ResponseContext;
 
 /**
  *
  * @author Alexander Akhtyamov
  */
-public interface Module {
+public interface MappingModule extends Module {
     
-    public String getId();
+    public ResponseContext startSSO(RequestContext requestContext);
     
-    public String getName();
-    
-    public String getVersion();
-    
-    public void init(TransactionManager transactionManager, Element configuration, File homeFolder);
 }

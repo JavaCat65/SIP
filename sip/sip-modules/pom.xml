@@ -5,9 +5,6 @@
     <artifactId>sip</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>sip-components</artifactId>
+  <artifactId>sip-modules</artifactId>
   <packaging>pom</packaging>
-  <modules>
-      <module>sip-component-configuration-manager</module>
-  </modules>
 </project>

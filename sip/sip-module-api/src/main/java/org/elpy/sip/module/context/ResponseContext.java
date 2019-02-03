@@ -13,23 +13,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.elpy.sip.module;
-
-import java.io.File;
-
-import org.w3c.dom.Element;
+package org.elpy.sip.module.context;
 
 /**
- *
+ * Response context interface for web modules
+ * if {@link #getRedirectUrl()} is not null, then {@link #getResponseBody()} must not be used
  * @author Alexander Akhtyamov
  */
-public interface Module {
+public interface ResponseContext {
     
-    public String getId();
-    
-    public String getName();
-    
-    public String getVersion();
-    
-    public void init(TransactionManager transactionManager, Element configuration, File homeFolder);
+    public int getStatusCode();
+
+    public String getStatusMessage();
+
+    public String getRedirectUrl();
+
+    public byte[] getResponseBody();
 }

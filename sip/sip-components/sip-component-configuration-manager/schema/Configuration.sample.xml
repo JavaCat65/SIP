@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Configuration>
+<Configuration version="current">
+    <Module id="SAML_CORE_SP" version="1.0.0">
+        <Instance id="SomeSalesforceOrg" name="test sfdc org">
+            <AttributeContract>
+                <Attribute name="NameID"/>
+                <Attribute name="EmailAddress"/>
+                <Attribute name="FullName"/>
+            </AttributeContract>
+            <!-- other settings -->
+        </Instance>
+    </Module>
+    <!-- IdP redirects user to enrypted xml with attributes (as POST or GET) -->
+    <Module id="CUSTOM_REDIRECT_CORE_IDP" version="1.0.0">
+        <Instance id="SomeCustomIdp1" name="Some custom idp #1">
+            <!-- + ?sp=<sp instance id> -->
+            <IdpInitSSOEndpoint>https://idpapp1.com/sso</IdpInitSSOEndpoint>
+            <AttributeContract>
+                <Attribute name="subject"/>
+                <Attribute name="email"/>
+                <Attribute name="FirstName"/>
+                <Attribute name="LastName"/>
+            </AttributeContract>
+        </Instance>
+    </Module>
+    <Module id="SSOMapping" version="1.0.0">
+        <!-- type="redirect" is default one -->
+        <Instance id="SfdcSpToCustomIdp" name="SFDC SP TO CUSTOM IDP" type="redirect">
+            <IdentityProvider id="SomeCustomIdp1"/>
+            <ServiceProvider id="SomeSalesforceOrg"/>
+            <AttributeMappings>
+                <AttributeMapping sp-attribute="NameID" idp-attribute="subject" type="DEFAULT"/>
+                <AttributeMapping sp-attribute="EmailAddress" idp-attribute="email"/>
+                <AttributeMapping sp-attribute="FullName" type="SPEL">identity.getAttribute('FirstName')+' '+identity.getAttribute('LastName')</AttributeMapping>
+            </AttributeMappings>
+        </Instance>
+    </Module>
+</Configuration>

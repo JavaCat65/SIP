@@ -15,21 +15,11 @@
  */
 package org.elpy.sip.module;
 
-import java.io.File;
-
-import org.w3c.dom.Element;
-
 /**
  *
  * @author Alexander Akhtyamov
  */
-public interface Module {
-    
-    public String getId();
-    
-    public String getName();
-    
-    public String getVersion();
-    
-    public void init(TransactionManager transactionManager, Element configuration, File homeFolder);
+public interface Transaction {
+
+    public ModuleRegistry getModuleRegistry();
 }

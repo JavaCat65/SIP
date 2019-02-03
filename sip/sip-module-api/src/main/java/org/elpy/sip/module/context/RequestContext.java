@@ -13,23 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.elpy.sip.module;
+package org.elpy.sip.module.context;
 
-import java.io.File;
-
-import org.w3c.dom.Element;
+import org.elpy.sip.module.Transaction;
 
 /**
  *
  * @author Alexander Akhtyamov
  */
-public interface Module {
-    
-    public String getId();
-    
-    public String getName();
-    
-    public String getVersion();
-    
-    public void init(TransactionManager transactionManager, Element configuration, File homeFolder);
+public interface RequestContext {
+    public Transaction getTransaction();
 }

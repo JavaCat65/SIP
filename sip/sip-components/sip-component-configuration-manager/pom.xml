@@ -2,12 +2,8 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>org.elpy.sip</groupId>
-    <artifactId>sip</artifactId>
+    <artifactId>sip-components</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>sip-components</artifactId>
-  <packaging>pom</packaging>
-  <modules>
-      <module>sip-component-configuration-manager</module>
-  </modules>
+  <artifactId>sip-component-configuration-manager</artifactId>
 </project>
